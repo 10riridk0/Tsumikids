@@ -14,7 +14,7 @@ public class CoordinateRead : MonoBehaviour
         // TextAsset型にcsvロードする
         // TextAsset: テキストファイルのデータを取得できる
         // Resources.Load: Resourcesフォルダーにあるアセットを読み込む
-        TextAsset csv = Resources.Load(dataName) as TextAsset;
+        TextAsset csv = Resources.Load("Coordinate/" + dataName) as TextAsset;
         StringReader reader = new StringReader(csv.text);
 
         //文字の末尾まで繰り返す
