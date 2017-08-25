@@ -1,0 +1,148 @@
+fileFormatVersion: 2
+guid: 87e1f5904edeccb4f8d23c1426a719fb
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: ParticleMesh_Square
+    100004: ParticleMesh_Triangle
+    100006: ParticleMesh_Cube
+    100008: ParticleMesh_Pulse
+    100010: ParticleMesh_Sphere112
+    100012: ParticleMesh_Sphere114
+    100014: ParticleMesh_Sphere60t
+    100016: ParticleMesh_Sphere24t
+    100018: ParticleMesh_Pulse_Facing
+    100020: ParticleMesh_Pulse_Facing1
+    100022: ParticleMesh_Tube_Facing
+    100024: ParticleMesh_Tube_Facing1
+    100026: ParticleMesh_Tube_Facing2
+    100028: ParticleMesh_Sphere24t1
+    100030: ParticleMesh_Pyramid
+    400000: //RootNode
+    400002: ParticleMesh_Square
+    400004: ParticleMesh_Triangle
+    400006: ParticleMesh_Cube
+    400008: ParticleMesh_Pulse
+    400010: ParticleMesh_Sphere112
+    400012: ParticleMesh_Sphere114
+    400014: ParticleMesh_Sphere60t
+    400016: ParticleMesh_Sphere24t
+    400018: ParticleMesh_Pulse_Facing
+    400020: ParticleMesh_Pulse_Facing1
+    400022: ParticleMesh_Tube_Facing
+    400024: ParticleMesh_Tube_Facing1
+    400026: ParticleMesh_Tube_Facing2
+    400028: ParticleMesh_Sphere24t1
+    400030: ParticleMesh_Pyramid
+    2300000: //RootNode
+    2300002: ParticleMesh_Square
+    2300004: ParticleMesh_Triangle
+    2300006: ParticleMesh_Cube
+    2300008: ParticleMesh_Pulse
+    2300010: ParticleMesh_Sphere112
+    2300012: ParticleMesh_Sphere114
+    2300014: ParticleMesh_Sphere60t
+    2300016: ParticleMesh_Sphere24t
+    2300018: ParticleMesh_Pulse_Facing
+    2300020: ParticleMesh_Pulse_Facing1
+    2300022: ParticleMesh_Tube_Facing
+    2300024: ParticleMesh_Tube_Facing1
+    2300026: ParticleMesh_Tube_Facing2
+    2300028: ParticleMesh_Sphere24t1
+    2300030: ParticleMesh_Pyramid
+    3300000: //RootNode
+    3300002: ParticleMesh_Square
+    3300004: ParticleMesh_Triangle
+    3300006: ParticleMesh_Cube
+    3300008: ParticleMesh_Pulse
+    3300010: ParticleMesh_Sphere112
+    3300012: ParticleMesh_Sphere114
+    3300014: ParticleMesh_Sphere60t
+    3300016: ParticleMesh_Sphere24t
+    3300018: ParticleMesh_Pulse_Facing
+    3300020: ParticleMesh_Pulse_Facing1
+    3300022: ParticleMesh_Tube_Facing
+    3300024: ParticleMesh_Tube_Facing1
+    3300026: ParticleMesh_Tube_Facing2
+    3300028: ParticleMesh_Sphere24t1
+    3300030: ParticleMesh_Pyramid
+    4300000: pPlane1
+    4300002: ParticleMesh_Triangle
+    4300004: ParticleMesh_Square
+    4300006: ParticleMesh_Cube
+    4300008: ParticleMesh_Pulse
+    4300010: ParticleMesh_Sphere112
+    4300012: ParticleMesh_Sphere114
+    4300014: ParticleMesh_Sphere60t
+    4300016: ParticleMesh_Sphere24t
+    4300018: ParticleMesh_Pulse_Facing
+    4300020: ParticleMesh_Pulse_Facing1
+    4300022: ParticleMesh_Tube_Facing
+    4300024: ParticleMesh_Tube_Facing1
+    4300026: ParticleMesh_Tube_Facing2
+    4300028: ParticleMesh_Sphere24t1
+    4300030: ParticleMesh_Pyramid
+    9500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
