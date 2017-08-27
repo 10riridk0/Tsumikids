@@ -8,7 +8,7 @@ public class EffectPosition : MonoBehaviour {
     private float x, y, z;
     void Start ()
     {
-        GameObject prefab = (GameObject)Resources.Load("EffectPrefab/Stretch 03 PS");   //Resourcesフォルダの中の「Stretch 03 PS(プレハブ)」を取得する
+        GameObject prefab = (GameObject)Resources.Load("EffectPrefab/Sphere 09 PS");   //Resourcesフォルダの中のプレハブを取得する
         ParticleSystem ps = prefab.GetComponent<ParticleSystem>();                      //パーティクルシステムのコンポーネントを取得
 
         //CoordinateReadのdata(座標)を代入。文字列として取得しているので、float.Parse(...)でキャストする
@@ -21,7 +21,6 @@ public class EffectPosition : MonoBehaviour {
         Instantiate(prefab, new Vector3(x, y, z), Quaternion.identity);
         scalingMode = ParticleSystemScalingMode.Hierarchy;                              //ScalingModeをHierarchyにする
         transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);                        //エフェクトの大きさを0.05にする
-        
     }
 
 	void Update () {
