@@ -6,7 +6,7 @@ using System.IO;
 public class CoordinateRead : MonoBehaviour
 {
     //csvファイルを突っ込むリスト
-    public List<string[]> csvData = new List<string[]>();
+    public static List<string[]> data = new List<string[]>();
     
     //仮引数: csvファイルの名前
     public void CsvRead(string dataName)
@@ -20,14 +20,14 @@ public class CoordinateRead : MonoBehaviour
         //文字の末尾まで繰り返す
         while (reader.Peek() > -1)
         {
-            //「,」ごとに区切ってcsvData配列にぶちこむ
+            //「,」ごとに区切ってdata配列にぶちこむ
             //reader.ReadLine: 1行分の文字を読み取り、そのデータを文字列として返す
             string line = reader.ReadLine();
-            csvData.Add(line.Split(','));
+            data.Add(line.Split(','));
         }
-        for (int i = 0; i < csvData.Count; i++) {
-            for (int j = 0; j < csvData[i].Length; j++) {
-                Debug.Log(csvData[i][j]);
+        for (int i = 0; i < data.Count; i++) {
+            for (int j = 0; j < data[i].Length; j++) {
+                Debug.Log(data[i][j]);
             }       
         }
     }
