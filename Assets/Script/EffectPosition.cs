@@ -35,7 +35,7 @@ public class EffectPosition : MonoBehaviour {
         //Instantiate( 生成するオブジェクト,  場所, 回転): 回転はそのままなら" Quaternion.identity"らしい
         Instantiate(prefab, new Vector3(x, y, z), Quaternion.identity);
         scalingMode = ParticleSystemScalingMode.Hierarchy;                              //ScalingModeをHierarchyにする
-        transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);                        //エフェクトの大きさを0.05にする
+        transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);                     //エフェクトの大きさを0.05にする
     }
 
 	void Update () {
