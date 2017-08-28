@@ -4,14 +4,29 @@ using UnityEngine;
 
 public class EffectPosition : MonoBehaviour {
 
-    private ParticleSystemScalingMode scalingMode;
-    private float x, y, z;
     void Start ()
     {
-        GameObject prefab = (GameObject)Resources.Load("EffectPrefab/Sphere 09 PS");   //Resourcesフォルダの中のプレハブを取得する
-        ParticleSystem ps = prefab.GetComponent<ParticleSystem>();                      //パーティクルシステムのコンポーネントを取得
+        ParticleSystemScalingMode scalingMode;                                           //scalingModeをいじるために宣言しとく
+        float x, y, z;                                                                   //座標x, y, zを格納する
+        GameObject prefab;
 
-        //CoordinateReadのdata(座標)を代入。文字列として取得しているので、float.Parse(...)でキャストする
+        //Resourcesフォルダの中のプレハブを取得する
+        int random = Random.Range(0, 3);
+        if (random == 0)
+        {
+            prefab = (GameObject)Resources.Load("EffectPrefab/Triangle 11 PS red");
+        }
+        else if (random == 1)
+        {
+            prefab = (GameObject)Resources.Load("EffectPrefab/Triangle 11 PS blue");
+        }
+        else
+        {
+            prefab = (GameObject)Resources.Load("EffectPrefab/Triangle 11 PS yellow");
+        }
+
+        ParticleSystem ps = prefab.GetComponent<ParticleSystem>();                       //パーティクルシステムのコンポーネントを取得
+        //CoordinateReadのdata(座標)を代入。文字列として取得しているので、float.Parse(..)でキャストする
         x = float.Parse(CoordinateRead.data[0][0]);
         y = float.Parse(CoordinateRead.data[0][1]);
         z = float.Parse(CoordinateRead.data[0][2]);
