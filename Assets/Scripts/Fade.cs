@@ -7,7 +7,7 @@ public class Fade : MonoBehaviour
 {
 
     public static float alfa;                 //アルファ値を操作する変数
-    public static float speed = 0.008f;       //アルファ値が変化する速さ変数
+    public static float speed = 0.007f;       //アルファ値が変化する速さ変数
     public static float r, g, b;                     //RGBを操作する変数
     static Image image;                       //フェードイン・アウトするためのImage
     private RectTransform imageSize;          //Imageのサイズ変更のために使う  

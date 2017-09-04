@@ -17,6 +17,6 @@ public class SceneTransitionAfter : MonoBehaviour
         //isFadeinがtrue(フェードアウト済み, かつシーン切り替えが終了している)ときフェードインする
         Debug.Log("シーンをフェードインします");
         Fade.Fadein();
-        SceneTransitionBefore.flag = false;
+        /*ここにフェードインを抜け出す処理と「SceneTransitionBefore.flag = false」を書いたほうがよさそう*/
     }
 }

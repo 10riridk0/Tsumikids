@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BgmFader : MonoBehaviour
 {
-    private float bgmFadeSpeed = 0.05f;
-    private bool flag = false;
+    private float bgmFadeSpeed = 0.007f;
     AudioSource audioSource;
 
     private void BgmFadeOut()
@@ -14,27 +13,24 @@ public class BgmFader : MonoBehaviour
         if (audioSource.volume <= 0)
         {
             Destroy(gameObject);
-            Debug.Log("終了");
+            Debug.Log("out>> " + audioSource.volume);
+            Debug.Log("BGMフェードアウト終了");
         }
     }
 
     private void BgmFadeIn()
     {
-        if (!flag)
-        {
-            audioSource.volume = 0;
-        }
+        Debug.Log("in>> " + audioSource.volume);
         audioSource.volume += bgmFadeSpeed;
         if (audioSource.volume >= 1)
         {
-            Debug.Log("終了");
+            Debug.Log("BGMフェードイン終了");
         }
     }
     // Use this for initialization
     void Start()
     {
         audioSource = GetComponent<AudioSource>();  //コンポーネント取得
-        flag = false;
     }
 
     // Update is called once per frame
