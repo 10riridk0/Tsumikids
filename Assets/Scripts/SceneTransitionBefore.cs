@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SceneTransitionBefore : MonoBehaviour {
+public class SceneTransitionBefore : MonoBehaviour
+{
 
     public string nextSceneName = null;                //切り替えるシーンの名前
-    bool flag;
+    public static bool flag;
 
     //シーン切り替え関数
     //仮引数: 切り替えるシーンの名前
@@ -26,7 +27,7 @@ public class SceneTransitionBefore : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             flag = true;
-            Debug.Log("flag>> " + flag);
+            Debug.Log("クリックしました flag>> " + flag);
         }
         if (flag)
         {
@@ -34,15 +35,14 @@ public class SceneTransitionBefore : MonoBehaviour {
             if (!Fade.isFade)
             {
                 Fade.Fadeout();
-                Debug.Log("フェードアウトします");
+                Debug.Log("シーンをフェードアウトします");
             }
-            //isFadeoutがtrueのとき(フェードアウトしている)ときシーンを切り替える
+            //isFadeがtrueのとき(フェードアウトしている)ときシーンを切り替える
             if (Fade.isFade)
             {
                 ScreenTrans(nextSceneName);
                 Debug.Log("シーンを切り替えます");
             }
-
         }
     }
 }

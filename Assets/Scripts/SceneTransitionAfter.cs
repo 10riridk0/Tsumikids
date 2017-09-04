@@ -4,18 +4,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SceneTransitionAfter : MonoBehaviour {
+public class SceneTransitionAfter : MonoBehaviour
+{
 
-    void Start () {
+    void Start()
+    {
         Fade.alfa = 1;      //念のためalfa値を1で初期化する
-	}
-	
-	void Update () {
+    }
+
+    void Update()
+    {
         //isFadeinがtrue(フェードアウト済み, かつシーン切り替えが終了している)ときフェードインする
-        if (Fade.isFade)
-        {
-            Debug.Log("フェードインします");
-            Fade.Fadein();
-        }
+        Debug.Log("シーンをフェードインします");
+        Fade.Fadein();
+        SceneTransitionBefore.flag = false;
     }
 }
