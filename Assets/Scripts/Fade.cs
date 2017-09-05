@@ -20,6 +20,9 @@ public class Fade : MonoBehaviour
         if (alfa <= 0)
         {
             isFade = false;
+            SceneTransitionBefore.flag = false;
+            Debug.Log("isFade>> " + isFade);
+            Debug.Log("SceneTransitionBefore.flag>> " + SceneTransitionBefore.flag) ;
         }
     }
 

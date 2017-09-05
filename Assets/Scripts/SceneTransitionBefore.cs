@@ -27,7 +27,7 @@ public class SceneTransitionBefore : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             flag = true;
-            Debug.Log("クリックしました flag>> " + flag);
+            Debug.Log("SceneTransitionBefore.flag>> " + flag);
         }
         if (flag)
         {
