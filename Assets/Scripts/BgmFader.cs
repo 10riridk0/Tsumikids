@@ -17,16 +17,6 @@ public class BgmFader : MonoBehaviour
             Debug.Log("BGMフェードアウト終了");
         }
     }
-
-    private void BgmFadeIn()
-    {
-        Debug.Log("in>> " + audioSource.volume);
-        audioSource.volume += bgmFadeSpeed;
-        if (audioSource.volume >= 1)
-        {
-            Debug.Log("BGMフェードイン終了");
-        }
-    }
     // Use this for initialization
     void Start()
     {
@@ -38,14 +28,7 @@ public class BgmFader : MonoBehaviour
     {
         if (SceneTransitionBefore.flag)
         {
-            if (!Fade.isFade)
-            {
-                BgmFadeOut();
-            }
-            if (Fade.isFade)
-            {
-                BgmFadeIn();
-            }
+            BgmFadeOut();
         }
     }
 }

@@ -12,7 +12,7 @@ public class SceneTransitionBefore : MonoBehaviour
 
     //シーン切り替え関数
     //仮引数: 切り替えるシーンの名前
-    public void ScreenTrans(string sceneName)
+    public void SceneTrans(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
@@ -40,7 +40,7 @@ public class SceneTransitionBefore : MonoBehaviour
             //isFadeがtrueのとき(フェードアウトしている)ときシーンを切り替える
             if (Fade.isFade)
             {
-                ScreenTrans(nextSceneName);
+                SceneTrans(nextSceneName);
                 Debug.Log("シーンを切り替えます");
             }
         }
