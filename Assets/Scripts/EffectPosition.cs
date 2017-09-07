@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EffectPosition : MonoBehaviour {
 
+    float x, y, z;                                                                   //座標x, y, zを格納する
+    GameObject prefab;
     void Start()
     {
-        float x, y, z;                                                                   //座標x, y, zを格納する
-        GameObject prefab;
-
         //Resourcesフォルダの中のプレハブを取得する
         int random = Random.Range(0, 3);
+        Debug.Log(random);
         if (random == 0)
         {
             prefab = (GameObject)Resources.Load("EffectPrefab/Pulse 04 PS red");
@@ -34,5 +34,8 @@ public class EffectPosition : MonoBehaviour {
         //Instantiate( 生成するオブジェクト,  場所, 回転): 回転はそのままなら" Quaternion.identity"らしい
         Instantiate(prefab, new Vector3(x, y, z), Quaternion.identity);
     }
-
+    private void Update()
+    {
+        
+    }
 }
