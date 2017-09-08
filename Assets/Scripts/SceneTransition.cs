@@ -27,7 +27,7 @@ public class SceneTransition : MonoBehaviour {
             {
                 Debug.Log("フェードイン終了");
                 isFadeIn = true;                        //alfa < 0なのでフェードイン終了
-                Destroy(fadeCanvas);                    //必要ないのでfadeCanvasを削除
+                fadeCanvas.SetActive(false);
             }
         }
     }
@@ -45,6 +45,7 @@ public class SceneTransition : MonoBehaviour {
             {
                 Debug.Log("フェードアウト終了");
                 isFadeOut = true;
+                //Destroy(fadeCanvas);                    //fadeCanvasを削除
             }
         }
     }
