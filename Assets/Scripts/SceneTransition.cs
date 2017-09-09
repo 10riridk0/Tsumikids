@@ -41,31 +41,39 @@ public class SceneTransition : MonoBehaviour {
             Debug.Log("FadeOut alfa>> " + alfa);
             alfa += fadeSpeed;
             image.color = new Color(r, g, b, alfa);
+            Debug.Log("isFadeOut>> " + isFadeOut);
             if (alfa > 1)
             {
                 Debug.Log("フェードアウト終了");
                 isFadeOut = true;
-                //Destroy(fadeCanvas);                    //fadeCanvasを削除
+                Debug.Log("isFadeOut>> " + isFadeOut);
             }
         }
     }
     // Use this for initialization
     void Start()
     {
+        /*
         if (GameObject.Find("SceneTransition(Clone)") == null)                  //HierarchyにSceneTransitionがなかったら生成する
         {
             scenePrefab = (GameObject)Resources.Load("FadePrefab/SceneTransition");
             sceneTransition = (GameObject)Instantiate(scenePrefab);
         }
-        if (GameObject.Find("FadeCanvas(Clone)") == null)                       //Hierarchyの中にFadeCanvasがなかったら生成する
+        if (GameObject.Find("SceneTransition") != null)                                 //HierarchyにSceneTransitionが増えないように古いの消す
+        {
+            scenePrefab = (GameObject)Resources.Load("FadePrefab/SceneTransition");
+            Destroy(this);
+        }
+        */
+        if (GameObject.Find("FadeCanvas(Clone)") == null)                               //Hierarchyの中にFadeCanvasがなかったら生成する
         {
             fadePrefab = (GameObject)Resources.Load("FadePrefab/FadeCanvas");
             fadeCanvas = (GameObject)Instantiate(fadePrefab);
         }
-        DontDestroyOnLoad(sceneTransition);
-        DontDestroyOnLoad(fadeCanvas);                                          //シーン遷移しても破棄しないようにする(永続的に保持)
-        image = GameObject.Find("Panel").GetComponent<Image>();                 //PanelのImageコンポーネント取得
-        fadeCanvas.SetActive(false);                                            //非表示にする
+        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(fadeCanvas);                                                  //シーン遷移しても破棄しないようにする(永続的に保持)
+        image = GameObject.Find("Panel").GetComponent<Image>();                         //PanelのImageコンポーネント取得
+        fadeCanvas.SetActive(false);                                                    //非表示にする
     }
 
 
@@ -79,6 +87,8 @@ public class SceneTransition : MonoBehaviour {
         {
             SceneManager.LoadScene(sceneName);       //シーン読み込み
             Debug.Log("シーン遷移終了");
+            isFadeOut = false;
+            isFadeIn = false;
         }
     }
     //フェードイン関数

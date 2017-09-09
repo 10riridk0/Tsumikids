@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class sub : MonoBehaviour {
+public class spare : MonoBehaviour {
+
 	// Use this for initialization
 	void Start () {
-    }
+		
+	}
 	
 	// Update is called once per frame
 	void Update () {
-        SceneTransition.FadeIn();
-        if (Input.anyKey)
-        {
-            SceneTransition.ChangeScene("spare");
-        }
-    }
+        SceneTransition.SceneFadeIn();
+	}
 }
