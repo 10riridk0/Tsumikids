@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spare : MonoBehaviour {
+public class hoge : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -12,9 +12,5 @@ public class spare : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         SceneTransition.SceneFadeIn();
-        if (Input.anyKey)
-        {
-            SceneTransition.ChangeScene("hoge");
-        }
-	}
+    }
 }
