@@ -4,17 +4,35 @@ using UnityEngine;
 
 public class BgmFader : MonoBehaviour
 {
-    private float bgmFadeSpeed = 0.007f;
-    AudioSource audioSource;
+    public static float bgmFadeSpeed = 0.07f;
+    //public static bool isFadeOut = false, isFadeIn = false;
+    public static bool isBgm = false;
+    public static AudioSource audioSource;
 
-    private void BgmFadeOut()
+    public static void BgmFadeOut()
     {
-        audioSource.volume -= bgmFadeSpeed;
-        if (audioSource.volume <= 0)
+        Debug.Log("BGMフェードアウト開始");
+        if (!isBgm)
         {
-            Destroy(gameObject);
-            Debug.Log("out>> " + audioSource.volume);
-            Debug.Log("BGMフェードアウト終了");
+            audioSource.volume -= bgmFadeSpeed;
+            if (audioSource.volume <= 0)
+            {
+                isBgm = true;
+                Debug.Log("BGMフェードアウト終了");
+            }
+        }
+    }
+    public static void BgmFadeIn()
+    {
+        Debug.Log("BGMフェードイン開始");
+        if (isBgm)
+        {
+            audioSource.volume += bgmFadeSpeed;
+            if (audioSource.volume >= 1)
+            {
+                isBgm = false;
+                Debug.Log("BGMフェードイン終了");
+            }
         }
     }
     // Use this for initialization
@@ -26,9 +44,5 @@ public class BgmFader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneTransitionBefore.flag)
-        {
-            BgmFadeOut();
-        }
     }
 }

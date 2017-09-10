@@ -12,5 +12,6 @@ public class hoge : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         SceneTransition.SceneFadeIn();
+        BgmFader.BgmFadeIn();
     }
 }
