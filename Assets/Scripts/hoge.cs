@@ -12,8 +12,6 @@ public class hoge : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         SceneTransition.SceneFadeIn();
-        BgmFader.BgmFadeIn();
-
         if (Input.anyKey)
         {
             SoundEffect.Play("Glory of fanfare", 0.1f);

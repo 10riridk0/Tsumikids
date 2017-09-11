@@ -40,7 +40,7 @@ public class SceneTransition : MonoBehaviour {
         {
             alfa += fadeSpeed;
             image.color = new Color(r, g, b, alfa);
-            Debug.Log("isFadeOut>> " + isFadeOut);
+            //Debug.Log("isFadeOut>> " + isFadeOut);
             if (alfa > 1)
             {
                 //Debug.Log("フェードアウト終了");

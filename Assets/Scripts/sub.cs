@@ -10,11 +10,10 @@ public class sub : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         SceneTransition.FadeIn();
-        BgmFader.BgmFadeIn();
         if (Input.anyKey)
         {
             SceneTransition.ChangeScene("spare");
-            BgmFader.BgmFadeOut();
+            BgmFader.FadeOut();
         }
     }
 }

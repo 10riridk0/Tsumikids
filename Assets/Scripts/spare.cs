@@ -15,6 +15,7 @@ public class spare : MonoBehaviour {
         if (Input.anyKey)
         {
             SceneTransition.ChangeScene("hoge");
+            BgmFader.FadeOut();
         }
 	}
 }
