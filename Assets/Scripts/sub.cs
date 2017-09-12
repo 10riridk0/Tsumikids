@@ -13,7 +13,7 @@ public class sub : MonoBehaviour {
         if (Input.anyKey)
         {
             SceneTransition.ChangeScene("spare");
-            BgmFader.FadeOut();
+            BgmFader.FadeSet();
         }
     }
 }

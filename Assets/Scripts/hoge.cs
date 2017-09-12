@@ -12,9 +12,13 @@ public class hoge : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         SceneTransition.SceneFadeIn();
-        if (Input.anyKey)
+        if (Input.GetKeyDown(KeyCode.B))
         {
             SoundEffect.Play("Glory of fanfare", 0.1f);
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            SoundEffect.Play("Pop-Up", 0.1f);
         }
     }
 }

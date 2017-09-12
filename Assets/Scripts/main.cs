@@ -11,7 +11,10 @@ public class main : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        SceneTransition.ChangeScene("sub");
-        BgmFader.FadeOut();
-	}
+        if (Input.anyKey)
+        {
+            BgmFader.FadeSet();
+            SceneTransition.ChangeScene("sub");
+        }
+    }
 }
