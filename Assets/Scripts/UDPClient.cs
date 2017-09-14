@@ -6,7 +6,7 @@ public class UDPClient : MonoBehaviour
 {
     // broadcast address
     public string host = "192.168.137.1";
-    public int port = 4000;
+    public int port = 3000;
     public string text;
     private UdpClient client;
 
@@ -30,13 +30,16 @@ public class UDPClient : MonoBehaviour
         }
     }
 
+    int cnt = 0;
+
     public void Send_data(string text)
     {
+        cnt++;
         client = new UdpClient();
         client.Connect(host, port);
         byte[] dgram = Encoding.UTF8.GetBytes(text);
         client.Send(dgram, dgram.Length);
-        Debug.Log(text);
+        Debug.Log("snd" + cnt + "::" + text);
         client.Close();
     }
 

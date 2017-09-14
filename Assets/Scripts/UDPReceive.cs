@@ -7,14 +7,17 @@ using System.Threading;
 
 public class UDPReceive : MonoBehaviour
 {
-    int LOCA_LPORT = 4000;
-    static UdpClient udp;
+    static int LOCA_LPORT = 4000;
+    static string ADDRESS = "192.168.137.1";
+    static IPAddress localAddress = IPAddress.Parse(ADDRESS);
+    //static UdpClient udp;
+    static IPEndPoint localEP = new IPEndPoint(localAddress, LOCA_LPORT);
+    static UdpClient udp = new UdpClient(localEP);
     Thread thread;
 
     void Start()
     {
-        udp = new UdpClient(LOCA_LPORT);
-        udp.Client.ReceiveTimeout = 2000;
+        udp.Client.ReceiveTimeout = 0;
         thread = new Thread(new ThreadStart(ThreadMethod));
         thread.Start();
     }
@@ -30,18 +33,15 @@ public class UDPReceive : MonoBehaviour
 
     private static void ThreadMethod()
     {
-        Debug.Log("ここまできた");
         int i = 0;
         while (true)
         {
-            Debug.Log(i++);
+            i++;
             IPEndPoint remoteEP = null;
-            Debug.Log(i++);
+            Debug.Log(i);
             byte[] data = udp.Receive(ref remoteEP);
-            Debug.Log(i++);
             string received_data = Encoding.UTF8.GetString(data);
-            Debug.Log(i++);
-            Debug.Log(received_data);
+            Debug.Log("rcv" + i + "::" + received_data);
         }
     }
 }

@@ -8,10 +8,8 @@ public class Test : MonoBehaviour {
 	void Start () {
         string test_text = "test";
         UDPClient UDP = GetComponent<UDPClient>();
-
-        //UDP.text = test_text;
-        //UDPClient.Send_data(test_text);
-	}
+        //UDP.Send_data(test_text);
+    }
 	
 	// Update is called once per frame
 	void Update () {
