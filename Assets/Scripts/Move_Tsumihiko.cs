@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Move_Tsumihiko : MonoBehaviour {
 
+    public char direction;
+
     // Use this for initialization
     void Start () {
-        StartCoroutine("move", 'd');
+        StartCoroutine("move", direction);
+        StartCoroutine("move", direction);
+        StartCoroutine("move", 'r');
     }
 	
 	// Update is called once per frame
@@ -22,19 +26,16 @@ public class Move_Tsumihiko : MonoBehaviour {
         Vector3 add = new Vector3(0, 0, 0);
         add = direction_dicied(add, direction);
         Debug.Log(add);
-
-        while (true)
+        for (int i = 0; i < 15; i++)
         {
-            for (int i = 0; i < 15; i++)
-            {
-                yield return new WaitForSeconds(0.1f); // ３秒待つ
+            yield return new WaitForSeconds(0.1f); // ３秒待つ
                 
-                trans_tsumihiko.position += add;
-                Debug.Log(trans_tsumihiko.position);
-            }
-
-            trans_tsumihiko.position = before_change;
+            trans_tsumihiko.position += add;
+            Debug.Log(trans_tsumihiko.position);
         }
+
+        new WaitForSeconds(3);
+        //trans_tsumihiko.position = before_change;
     }
 
     Vector3 direction_dicied(Vector3 add, char direction)
