@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Stage : MonoBehaviour {
 
-    static int[,] start_position = new int[,] {{-585, -296}, {-585, -296}, {-735, -446}};
+    public Vector3[] start_position = new Vector3[] {new Vector3(-585, -300, 0), new Vector3(-585, -300, 0), new Vector3(-735, -450, 0)};
 
     // Use this for initialization
     void Start () {
