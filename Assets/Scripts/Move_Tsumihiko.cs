@@ -9,7 +9,7 @@ public class Move_Tsumihiko : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //SceneTransition.FadeIn();
+        SceneTransition.FadeIn();
         Stage stage = GetComponent<Stage>();
         Transform trans_tsumihiko = GetComponent<Transform>();
         Vector3 initial = stage.start_position[0];
@@ -73,7 +73,11 @@ public class Move_Tsumihiko : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D t)
     {
+        GameObject enemy = t.gameObject;
+        Animator animator;
+        animator = enemy.GetComponent<Animator>();
+        animator.SetBool("wara", true);
         Debug.Log(t);
-        fading = true;
+        //fading = true;
     }
 }
