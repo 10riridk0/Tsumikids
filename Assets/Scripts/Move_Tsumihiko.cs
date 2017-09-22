@@ -68,8 +68,8 @@ public class Move_Tsumihiko : MonoBehaviour {
         direction = GUI.TextField(new Rect(10, 10, 200, 20), direction, 25);
     }
 
-    void OnTriggerEnter(Collider t)
+    void OnTriggerEnter2D(Collider2D t)
     {
-        Debug.Log('1');
+        Debug.Log(t);
     }
 }
