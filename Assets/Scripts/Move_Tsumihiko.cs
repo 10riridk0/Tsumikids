@@ -5,20 +5,23 @@ using UnityEngine;
 public class Move_Tsumihiko : MonoBehaviour {
 
     public string direction;
+    bool fading = false;
 
     // Use this for initialization
     void Start () {
+        //SceneTransition.FadeIn();
         Stage stage = GetComponent<Stage>();
         Transform trans_tsumihiko = GetComponent<Transform>();
         Vector3 initial = stage.start_position[0];
-        Debug.Log(stage.start_position[0]);
-        Debug.Log(initial);
         trans_tsumihiko.position = initial;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        
+        if (fading)
+        {
+            SceneTransition.ChangeScene("battle");
+        }
     }
 
     //つみひこ移動関数
@@ -71,5 +74,6 @@ public class Move_Tsumihiko : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D t)
     {
         Debug.Log(t);
+        fading = true;
     }
 }
