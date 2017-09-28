@@ -22,10 +22,11 @@ public class SceneTransition : MonoBehaviour {
         if (!isFadeIn)
         {
             alfa -= fadeSpeed;
+            Debug.Log(alfa);
             image.color = new Color(r, g, b, alfa);     //透明度を更新
             if (alfa <= 0)
             {
-                //Debug.Log("フェードイン終了");
+                Debug.Log("フェードイン終了");
                 isFadeIn = true;                        //alfa < 0なのでフェードイン終了
                 fadeCanvas.SetActive(false);
             }

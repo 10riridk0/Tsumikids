@@ -13,17 +13,23 @@ public class UDPReceive : MonoBehaviour
     //static UdpClient udp;
     static IPEndPoint localEP = new IPEndPoint(localAddress, LOCA_LPORT);
     static UdpClient udp = new UdpClient(localEP);
+    public static string received_data;
     Thread thread;
+    static bool isRecieve = false;
 
     void Start()
     {
         udp.Client.ReceiveTimeout = 0;
-        thread = new Thread(new ThreadStart(ThreadMethod));
+        thread = new Thread(new ThreadStart(Recieve));
         thread.Start();
     }
 
     void Update()
     {
+        if (isRecieve)
+        {
+            hand_over();
+        }
     }
 
     void OnApplicationQuit()
@@ -31,17 +37,23 @@ public class UDPReceive : MonoBehaviour
         thread.Abort();
     }
 
-    private static void ThreadMethod()
+    private static void hand_over()
     {
-        int i = 0;
+        //Debug.Log(received_data);
+        isRecieve = false;
+        Program_Execution.exe(received_data);
+        
+        Debug.Log(isRecieve);
+    }
+
+    private static void Recieve()
+    {
         while (true)
         {
-            i++;
             IPEndPoint remoteEP = null;
-            Debug.Log(i);
             byte[] data = udp.Receive(ref remoteEP);
-            string received_data = Encoding.UTF8.GetString(data);
-            Debug.Log("rcv" + i + "::" + received_data);
+            received_data = Encoding.UTF8.GetString(data);
+            isRecieve = true;
         }
     }
 }
