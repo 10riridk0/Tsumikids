@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class EffectPosition : MonoBehaviour {
 
-    float x, y, z;                                                                   //座標x, y, zを格納する
-    GameObject prefab;
+    static float x, y, z;                                                                   //座標x, y, zを格納する
+    static GameObject prefab;
     void Start()
     {
         //Resourcesフォルダの中のプレハブを取得する
+        
+    }
+    private void Update()
+    {
+        
+    }
+
+    public static void fire_work(Vector3 posi)
+    {
         int random = Random.Range(0, 3);
         Debug.Log(random);
         if (random == 0)
@@ -32,10 +41,6 @@ public class EffectPosition : MonoBehaviour {
 
         //プレハブからインスタンス生成
         //Instantiate( 生成するオブジェクト,  場所, 回転): 回転はそのままなら" Quaternion.identity"らしい
-        Instantiate(prefab, new Vector3(x, y, z), Quaternion.identity);
-    }
-    private void Update()
-    {
-        
+        Instantiate(prefab, posi, Quaternion.identity);
     }
 }

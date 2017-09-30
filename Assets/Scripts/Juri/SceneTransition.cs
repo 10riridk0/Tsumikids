@@ -22,7 +22,7 @@ public class SceneTransition : MonoBehaviour {
         if (!isFadeIn)
         {
             alfa -= fadeSpeed;
-            Debug.Log(alfa);
+            //Debug.Log(alfa);
             image.color = new Color(r, g, b, alfa);     //透明度を更新
             if (alfa <= 0)
             {
@@ -54,12 +54,12 @@ public class SceneTransition : MonoBehaviour {
     //仮引数: 遷移したいシーンの名前
     public static void ChangeScene(string sceneName)
     {
-        //Debug.Log("フェードアウト開始");
+        Debug.Log("フェードアウト開始");
         FadeOut();
         if (isFadeOut)                               //フェードアウトし終えたら次のシーンを読み込む
         {
             SceneManager.LoadScene(sceneName);       //シーン読み込み
-            //Debug.Log("シーン遷移終了");
+            Debug.Log("シーン遷移終了");
             isFadeOut = false;
             isFadeIn = false;                        //isFadeOutとisFadeInをfalseに戻しておく
         }
