@@ -51,13 +51,17 @@ public class Program_Execution : MonoBehaviour {
         {
             yield break;
         }
+
+        //つみひこマス移動
         Dungeon_main.tsumihiko_x = x;
         Dungeon_main.tsumihiko_y = y;
         Debug.Log(Dungeon_main.tsumihiko_x);
         Debug.Log(Dungeon_main.tsumihiko_y);
         Debug.Log(Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_x, Dungeon_main.tsumihiko_y]);
+
         for (int i = 0; i < 15; i++)
         {
+            //つみひこの位置変える
             Main.trans_tsumihiko.position += add;
             //Debug.Log(direction);
 
@@ -126,11 +130,10 @@ public class Program_Execution : MonoBehaviour {
 
     static IEnumerator Read(string program, char scene_initial)
     {
-        //MonoBehaviour execute = new MonoBehaviour();
+        //一文字ずつ読み込むやつ
         for (int i = 0; i < program.Length; i++)
         {
             instruction = program[i];
-            //Debug.Log(instruction);
 
             if (scene_initial == 'S')
             {
@@ -148,6 +151,10 @@ public class Program_Execution : MonoBehaviour {
             if (isCorrect == true)
             {
                 correct = true;
+            }
+            else
+            {
+                isCorrect = true;
             }
         }
 

@@ -15,13 +15,21 @@ public class UDPReceive : MonoBehaviour
     static UdpClient udp = new UdpClient(localEP);
     public static string received_data;
     Thread thread;
+
+    //受信を開始するかどうかの変数
     static bool isRecieve = false;
+    //受信したデータをVector3に格納するための変数
+    static string[] split_data;
+    //コルーチンを実行するためのインスタンス
+    public static MonoBehaviour instance;
 
     void Start()
     {
         udp.Client.ReceiveTimeout = 0;
         thread = new Thread(new ThreadStart(Recieve));
         thread.Start();
+
+        instance = this;
     }
 
     void Update()
@@ -39,9 +47,28 @@ public class UDPReceive : MonoBehaviour
 
     private static void hand_over()
     {
+        //分割した受信データ
+        split_data = received_data.Split(',');
+        //エフェクトを出す座標
+        Vector3 effect_pos = new Vector3();
+
+
         //Debug.Log(received_data);
         isRecieve = false;
-        Program_Execution.exe(received_data);
+        if (split_data[0] == "1")
+        {
+            Program_Execution.exe(split_data[1]);
+        }
+        else if (split_data[0] == "2")
+        {
+            effect_pos.x = 210 + int.Parse(split_data[2]) * 250 / 160;
+            effect_pos.y = -500 + int.Parse(split_data[1]) * 250 / 160;
+
+            //座標の調整
+            effect_pos.x += (960 - effect_pos.x) / 7.5f;
+
+            instance.StartCoroutine(EffectPosition.tsumiki_effect(effect_pos));
+        }
         
         Debug.Log(isRecieve);
     }
