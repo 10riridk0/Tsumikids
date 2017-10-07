@@ -15,7 +15,7 @@ public class BgmFader : MonoBehaviour
         for (int vol = 0; vol < 100; vol++)
         {
             audioSource.volume = (float)(vol) / 100;
-            Debug.Log("フェードイン中>> " + audioSource.volume);
+            //Debug.Log("フェードイン中>> " + audioSource.volume);
         }
         audioSource.volume = 1;
         Debug.Log("フェードイン終了");
@@ -29,7 +29,7 @@ public class BgmFader : MonoBehaviour
             for (int vol = 100; vol > 0; vol--)
             {
                 audioSource.volume = (float)(vol) / 100;
-                Debug.Log("フェードアウト中>> " + audioSource.volume);
+                //Debug.Log("フェードアウト中>> " + audioSource.volume);
             }
             audioSource.volume = 0;
             isFadeOut = false;

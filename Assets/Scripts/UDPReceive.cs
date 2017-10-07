@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+
 
 public class UDPReceive : MonoBehaviour
 {
@@ -57,6 +60,8 @@ public class UDPReceive : MonoBehaviour
         isRecieve = false;
         if (split_data[0] == "1")
         {
+            effect_pos = new Vector3(600, 0, 0);
+            instance.StartCoroutine(EffectPosition.tsumiki_effect(effect_pos));
             Program_Execution.exe(split_data[1]);
         }
         else if (split_data[0] == "2")
@@ -68,6 +73,19 @@ public class UDPReceive : MonoBehaviour
             effect_pos.x += (960 - effect_pos.x) / 7.5f;
 
             instance.StartCoroutine(EffectPosition.tsumiki_effect(effect_pos));
+
+            if (Dungeon_main.isGoal)
+            {
+                Dungeon_main.menu(effect_pos);
+            }
+            if (SceneManager.GetActiveScene().name == "main")
+            {
+                MainMenu.main_menu(effect_pos);
+            }
+        }
+        else if (split_data[0] == "-")
+        {
+            instance.StartCoroutine(Main.disp_error(int.Parse(split_data[1])));
         }
         
         Debug.Log(isRecieve);

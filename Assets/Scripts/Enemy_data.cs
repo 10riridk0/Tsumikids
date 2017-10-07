@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy_data : MonoBehaviour {
 
-    public static string[,] Probrems = { {"pk" , "pm"}, {"kpm", "mkp"}, {"ppkmm", "kpmmk"}, {"pkmm", "pkmm"}, {"mmmm", "pppp"}};
+    public static string[,] Probrems = { {"pk" , "mp"}, {"ppm", "pkp"}, {"kkk", "mmm"}, {"ppm", "mpk"}, {"kkkp", "mpkm"}, {"kmkmp", "mpkkm"} };
 
 	// Use this for initialization
 	void Start () {
@@ -13,11 +13,13 @@ public class Enemy_data : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
     public static string get_probrem()
     {
-        return (Probrems[Dungeon_main.enemy_name[7] - '1', Dungeon_main.enemy_number]);
+        Debug.Log(Dungeon_main.enemy_name[7]);
+        Debug.Log(Dungeon_main.probrem_number);
+        return (Probrems[Dungeon_main.enemy_name[7] - '1', Dungeon_main.probrem_number]);
     }
 }

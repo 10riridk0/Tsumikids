@@ -49,4 +49,39 @@ public class EffectPosition : MonoBehaviour {
 
         Destroy(effect);
     }
+
+    public static IEnumerator fire_work(Vector3 posi, int num)
+    {
+        //int random = Random.Range(0, 3);
+        Debug.Log(num);
+        if (num == 0)
+        {
+            prefab = (GameObject)Resources.Load("EffectPrefab/Cube 07 PS_blue");
+        }
+        else if (num == 1)
+        {
+            prefab = (GameObject)Resources.Load("EffectPrefab/Cube 07 PS_red");
+        }
+        else
+        {
+            prefab = (GameObject)Resources.Load("EffectPrefab/Cube 07 PS_orange");
+        }
+
+        //ParticleSystem ps = prefab.GetComponent<ParticleSystem>();                       //パーティクルシステムのコンポーネントを取得
+        //CoordinateReadのdata(座標)を代入。文字列として取得しているので、float.Parse(..)でキャストする
+        /*x = float.Parse(CoordinateRead.data[0][0]);
+        y = float.Parse(CoordinateRead.data[0][1]);
+        z = float.Parse(CoordinateRead.data[0][2]);*/
+
+        //プレハブからインスタンス生成
+        //Instantiate( 生成するオブジェクト,  場所, 回転): 回転はそのままなら" Quaternion.identity"らしい
+        effect = Instantiate(prefab, posi, Quaternion.identity);
+        Debug.Log(effect);
+
+        //yield return new WaitForSeconds(1.5f);
+
+        yield return null;
+
+        //Destroy(effect);
+    }
 }

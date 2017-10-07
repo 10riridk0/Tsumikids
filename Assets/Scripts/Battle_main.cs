@@ -11,17 +11,22 @@ public class Battle_main : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        //ライフの表示
+        Main.life_display();
+        //問題の取得、表示
         probrem = Enemy_data.get_probrem();
+        display_prob();
+
         Debug.Log(probrem);
         //enemy_object = GameObject.Find(Dungeon_main.enemy_name);
-        enemy_object = (GameObject)Resources.Load("Enemy/" + Dungeon_main.enemy_name);
-        Instantiate(enemy_object, initial_pos, Quaternion.identity);
         //SceneTransition.ChangeScene("Stage1");
     }
 
     private void Awake()
     {
         //enemy_object = GameObject.Find("Prefabs/Battle/" + Dungeon_main.enemy_name);
+        enemy_object = (GameObject)Resources.Load("Battle/Battle_enemy/" + SaveData.GetString("enemy_name"));
+        Instantiate(enemy_object, initial_pos, Quaternion.identity).name = "enemy";
     }
 
     // Update is called once per frame
@@ -29,7 +34,61 @@ public class Battle_main : MonoBehaviour {
         SceneTransition.FadeIn();
         if (Program_Execution.correct == true)
         {
-            SceneTransition.ChangeScene("Stage1");
+            BgmFader.FadeSet();
+            SceneTransition.ChangeScene(SaveData.GetString("Stage"));
+        }
+
+        if (Main.life < 1)
+        {
+            BgmFader.FadeSet();
+            SceneTransition.ChangeScene(SaveData.GetString("Stage"));
+        }
+    }
+
+    public static void display_prob()
+    {
+        GameObject icon;
+
+        int icon_y = 345 - 60 * (5 - probrem.Length);
+        Vector3 icon_pos = new Vector3(-350, 0, 0);
+        for (int i = probrem.Length; i > 0; i--)
+        {
+            icon_pos.y =  -105 + icon_y - icon_y / (probrem.Length - 1) * (probrem.Length - i);
+            icon = (GameObject)Resources.Load("Battle/attack_icon/" + probrem[probrem.Length - i]);
+            Instantiate(icon, icon_pos, Quaternion.identity);
+        }
+    }
+
+    public static void disp_black(int n)
+    {
+        GameObject black;
+        int icon_y = 345 - 60 * (5 - probrem.Length);
+        Vector3 icon_pos = new Vector3(-350, 0, 0);
+
+        black = GameObject.Find(probrem[n] + "(Clone)");
+        //Destroy(black);
+
+        icon_pos.y = -105 + icon_y - icon_y / (probrem.Length - 1) * n;
+        black = (GameObject)Resources.Load("Battle/attack_icon/" + probrem[n] + "2");
+        Instantiate(black, icon_pos, Quaternion.identity).name += n.ToString();
+    }
+
+    public static void des_black()
+    {
+        GameObject des;
+        for (int i = probrem.Length; i > 0; i--)
+        {
+            try
+            {
+                des = GameObject.Find(probrem[probrem.Length - i] + "2(Clone)" + (probrem.Length - i).ToString());
+                Debug.Log(des);
+                Destroy(des);
+            }
+            catch (System.NullReferenceException e)
+            {
+
+            }
+            Debug.Log(i);
         }
     }
 }

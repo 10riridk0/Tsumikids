@@ -22,7 +22,7 @@ public class SceneTransition : MonoBehaviour {
         if (!isFadeIn)
         {
             alfa -= fadeSpeed;
-            //Debug.Log(alfa);
+            Debug.Log(alfa);
             image.color = new Color(r, g, b, alfa);     //透明度を更新
             if (alfa <= 0)
             {
@@ -54,6 +54,8 @@ public class SceneTransition : MonoBehaviour {
     //仮引数: 遷移したいシーンの名前
     public static void ChangeScene(string sceneName)
     {
+        Debug.Log(sceneName);
+        Debug.Log(SceneManager.GetActiveScene().name);
         Debug.Log("フェードアウト開始");
         FadeOut();
         if (isFadeOut)                               //フェードアウトし終えたら次のシーンを読み込む
@@ -62,6 +64,7 @@ public class SceneTransition : MonoBehaviour {
             Debug.Log("シーン遷移終了");
             isFadeOut = false;
             isFadeIn = false;                        //isFadeOutとisFadeInをfalseに戻しておく
+            Debug.Log(isFadeOut);
         }
     }
     //フェードイン関数
@@ -80,7 +83,7 @@ public class SceneTransition : MonoBehaviour {
             fadeCanvas = (GameObject)Instantiate(fadePrefab);
         }
         DontDestroyOnLoad(this);                                                        //遷移してもSceneTransitionを破棄しないようにする
-        DontDestroyOnLoad(fadeCanvas);                                                  
+        DontDestroyOnLoad(fadeCanvas);
         image = GameObject.Find("Panel").GetComponent<Image>();                         //PanelのImageコンポーネント取得
         fadeCanvas.SetActive(false);                                                    //非表示にする
     }
