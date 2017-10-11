@@ -7,6 +7,7 @@ public class EffectPosition : MonoBehaviour {
     static float x, y, z;                                                                   //座標x, y, zを格納する
     static GameObject prefab;
     public static GameObject effect;
+    GameObject delete;
     void Start()
     {
         //Resourcesフォルダの中のプレハブを取得する
@@ -14,7 +15,18 @@ public class EffectPosition : MonoBehaviour {
     }
     private void Update()
     {
-        
+        if (delete = GameObject.Find("Cube 07 PS_blue" + "(Clone)"))
+        {
+            StartCoroutine(effect_des(delete));
+        }
+        else if (delete = GameObject.Find("Cube 07 PS_red" + "(Clone)"))
+        {
+            StartCoroutine(effect_des(delete));
+        }
+        else if (delete = GameObject.Find("Cube 07 PS_orange" + "(Clone)"))
+        {
+            StartCoroutine(effect_des(delete));
+        }
     }
 
     public static IEnumerator tsumiki_effect(Vector3 posi)
@@ -44,7 +56,7 @@ public class EffectPosition : MonoBehaviour {
         //Instantiate( 生成するオブジェクト,  場所, 回転): 回転はそのままなら" Quaternion.identity"らしい
         effect = Instantiate(prefab, posi, Quaternion.identity);
         Debug.Log(effect);
-
+        
         yield return new WaitForSeconds(1.5f);
 
         Destroy(effect);
@@ -82,6 +94,13 @@ public class EffectPosition : MonoBehaviour {
 
         yield return null;
 
-        //Destroy(effect);
+        Destroy(effect);
+    }
+
+    IEnumerator effect_des(GameObject des)
+    {
+        yield return new WaitForSeconds(0.2f);
+        Destroy(des);
+        yield return null;
     }
 }

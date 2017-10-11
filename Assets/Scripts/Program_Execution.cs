@@ -91,7 +91,7 @@ public class Program_Execution : MonoBehaviour {
         Dungeon_main.tsumihiko_y = y;
         Debug.Log(Dungeon_main.tsumihiko_x);
         Debug.Log(Dungeon_main.tsumihiko_y);
-        Debug.Log(Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_x, Dungeon_main.tsumihiko_y]);
+        Debug.Log(Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_y, Dungeon_main.tsumihiko_x]);
 
         for (int i = 0; i < 15; i++)
         {
@@ -284,6 +284,8 @@ public class Program_Execution : MonoBehaviour {
                 Debug.Log("isCorrect == true");
                 isCorrect = true;
             }
+
+            Battle_main.dead_tsu();
         }
 
     }
@@ -374,7 +376,7 @@ public class Program_Execution : MonoBehaviour {
                 {
                     if (program[i] == 'p' || program[i] == 'k' || program[i] == 'm')
                     {
-                        err = -4;
+                        err = -6;
                     }
                 }
                 break;
@@ -383,7 +385,7 @@ public class Program_Execution : MonoBehaviour {
                 {
                     if (program[i] == 'u' || program[i] == 'd' || program[i] == 'r' || program[i] == 'l')
                     {
-                        err = -4;
+                        err = -6;
                     }
                 }
                 break;
@@ -427,7 +429,7 @@ public class Program_Execution : MonoBehaviour {
 
         if (start == true)
         {
-            err = -5;
+            err = -4;
         }
 
         return (err);

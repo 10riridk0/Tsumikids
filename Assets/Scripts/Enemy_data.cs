@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy_data : MonoBehaviour {
 
-    public static string[,] Probrems = { {"pk" , "mp"}, {"ppm", "pkp"}, {"kkk", "mmm"}, {"ppm", "mpk"}, {"kkkp", "mpkm"}, {"kmkmp", "mpkkm"} };
+    public static string[,] Probrems = { {"kp" , "mk"}, {"km", "pk"}, {"mkm", "pkp"}, {"pkm", "mpk"}, {"kkkp", "mpkm"}, {"kmkmp", "mpkkm"} };
 
 	// Use this for initialization
 	void Start () {

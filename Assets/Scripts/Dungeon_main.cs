@@ -59,6 +59,11 @@ public class Dungeon_main : MonoBehaviour {
         //ライフ表示
         Main.life_display();
 
+        trans_next = false;
+        back_main = false;
+        isGoal = false;
+        fading = false;
+
         collider2D.isTrigger = true;
     }
 
@@ -88,7 +93,7 @@ public class Dungeon_main : MonoBehaviour {
         }
 
         //Debug.Log(trans_next);
-        //Debug.Log(next_stage_number);
+        //Debug.Log(fading);
         if (trans_next)
         {
             SceneTransition.ChangeScene("Stage" + next_stage_number.ToString());
@@ -175,11 +180,14 @@ public class Dungeon_main : MonoBehaviour {
     {
         GameObject menu;
 
+        Main.life = 3;
+
         isGoal = true;
         BgmFader.FadeSet();
         SoundEffect.Play("goal", 1);
         menu = (GameObject)Resources.Load("Dungeon/goal_menu");
         Instantiate(menu);
+        Destroy(GameObject.Find("mainmenu_tumiki_004"));
 
         Vector3[] p = { new Vector3(-650, -300, 0), new Vector3(-300, 300, 0), new Vector3(0, -100, 0)} ;
         Dungeon.StartCoroutine(EffectPosition.fire_work(p[0], 0));
@@ -189,15 +197,24 @@ public class Dungeon_main : MonoBehaviour {
 
     public static void menu(Vector3 pos)
     {
-            next_stage_number = SaveData.GetString("Stage")[5] - '0';
+            next_stage_number = SaveData.GetString("Stage", "stage1")[5] - '0' + 1;
             SaveData.Clear();
             SaveData.SetString("Stage", "Stage" + next_stage_number.ToString());
             SaveData.Save();
         if ((pos.x >= 500 && pos.x <= 700) && (pos.y > 0 && pos.y <= 200)){
-            trans_next = true;
+            if (SaveData.GetString("Stage") == "Stage5")
+            {
+                back_main = true;
+                SaveData.Clear();
+            }
+            else
+            {
+                trans_next = true;
+            }
         }
         else if ((pos.x >= 500 && pos.x <= 700) && (pos.y > -200 && pos.y <= 0))
         {
+            SaveData.Clear();
             back_main = true;
         }
     }

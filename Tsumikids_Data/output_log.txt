@@ -1,0 +1,75 @@
+Initialize engine version: 5.6.2f1 (a2913c821e27)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 4000 (ID=0x166)
+    Vendor:   Intel
+    VRAM:     912 MB
+    Driver:   10.18.10.4358
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\ict\Documents\Tsumikids\Tsumikids_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\ict\Documents\Tsumikids\Tsumikids_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\ict\Documents\Tsumikids\Tsumikids_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\ict\Documents\Tsumikids\Tsumikids_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\ict\Documents\Tsumikids\Tsumikids_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\ict\Documents\Tsumikids\Tsumikids_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\ict\Documents\Tsumikids\Tsumikids_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\ict\Documents\Tsumikids\Tsumikids_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\ict\Documents\Tsumikids\Tsumikids_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\ict\Documents\Tsumikids\Tsumikids_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.028 seconds
+Platform assembly: C:\Users\ict\Documents\Tsumikids\Tsumikids_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\ict\Documents\Tsumikids\Tsumikids_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 59Hz; virtual: 3520x1080 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 3.552377 ms
+-0.05
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+フェードイン終了
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Pulse 04 PS orange(Clone) (UnityEngine.GameObject)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(919.3, -169.0, 0.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Pulse 04 PS orange(Clone) (UnityEngine.GameObject)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(662.7, -394.0, 0.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+終了します
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 1c18 -> priority: 1 
+  Thread -> id: 23cc -> priority: 1 

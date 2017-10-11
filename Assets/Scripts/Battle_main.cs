@@ -7,10 +7,13 @@ public class Battle_main : MonoBehaviour {
     GameObject enemy_object;
     Vector3 initial_pos = new Vector3(90, 7, 0);
     public static string probrem;
-    
+    public static bool isdead;
+    public static string stage;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
+        isdead = false;
         //ライフの表示
         Main.life_display();
         //問題の取得、表示
@@ -38,10 +41,10 @@ public class Battle_main : MonoBehaviour {
             SceneTransition.ChangeScene(SaveData.GetString("Stage"));
         }
 
-        if (Main.life < 1)
+        if (isdead)
         {
             BgmFader.FadeSet();
-            SceneTransition.ChangeScene(SaveData.GetString("Stage"));
+            SceneTransition.ChangeScene(stage);
         }
     }
 
@@ -89,6 +92,17 @@ public class Battle_main : MonoBehaviour {
 
             }
             Debug.Log(i);
+        }
+    }
+
+    public static void dead_tsu()
+    {
+        if (Main.life < 1)
+        {
+            stage = SaveData.GetString("Stage");
+            SaveData.Clear();
+            isdead = true;
+            Main.life = 3;
         }
     }
 }
