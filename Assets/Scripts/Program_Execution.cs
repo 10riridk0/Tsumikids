@@ -23,6 +23,8 @@ public class Program_Execution : MonoBehaviour {
     public static bool correct;
     //つみひこのいるマス
     public static int x, y;
+    //つみひこのプログラム実行前の位置
+    public static int st_tsumihiko_x, st_tsumihiko_y;
 
     //つみひこのアニメーション
     GameObject enemy;
@@ -71,12 +73,14 @@ public class Program_Execution : MonoBehaviour {
         instance = this;
         stage = GetComponent<Stage>();
     }
-
     //つみひこ移動関数
     static IEnumerator move(char direction)
     {
         x = Dungeon_main.tsumihiko_x;
         y = Dungeon_main.tsumihiko_y;
+        st_tsumihiko_x = Dungeon_main.tsumihiko_x;
+        st_tsumihiko_y = Dungeon_main.tsumihiko_y;
+
         add = new Vector3(0, 0, 0);
         //before_change = main.trans_tsumihiko.position;
         add = direction_dicied(add, direction);
@@ -261,6 +265,18 @@ public class Program_Execution : MonoBehaviour {
 
             //yield return move(directions);
             
+        }
+        
+        /*
+         * つみひこの現在地とmapを比較する
+         * もし0(進める場所)だったら、つみひこをプログラム実行前の位置に戻す
+         */
+        if (scene_initial == 'S')
+        {
+            if (Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_x, Dungeon_main.tsumihiko_y] == 0)
+            {
+                Dungeon_main.restorePosition(st_tsumihiko_x, st_tsumihiko_y);
+            }
         }
         if (scene_initial == 'b')
         {

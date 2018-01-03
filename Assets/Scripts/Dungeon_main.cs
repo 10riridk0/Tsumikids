@@ -39,7 +39,7 @@ public class Dungeon_main : MonoBehaviour {
         Debug.Log(Stage.start_position[stage_number - 1]);
         Destroy_Enemy.kill_Enemy();
 
-        //つみひこの初期位置を保存
+        //つみひこの初期位置(スタート地点)を保存
         SaveData.SetInt("before_x", tsumihiko_x);
         SaveData.SetInt("before_y", tsumihiko_y);
         SaveData.Save();
@@ -67,6 +67,10 @@ public class Dungeon_main : MonoBehaviour {
         collider2D.isTrigger = true;
     }
 
+    /*
+     *つみひこのいるマス目をSaveDataの中から探す
+     * fadingをfalseにしてバトルシーンに移らないようにする
+     */
     private void Awake()
     {
         tsumihiko_x = SaveData.GetInt("x", 1);
@@ -167,6 +171,20 @@ public class Dungeon_main : MonoBehaviour {
             }
         }
         return (sum);
+    }
+
+    /*
+    * 仮引数の位置につみひこを戻す関数
+    * 仮引数: プログラム実行前のつみひこの位置
+    */
+    public static void restorePosition(int st_tsumihiko_x, int st_tsumihiko_y)
+    {
+        Debug.Log("st_tsumihiko_x =" + st_tsumihiko_x);
+        Debug.Log("st_tsumihiko_y =" + st_tsumihiko_y);
+        Debug.Log("tsumihiko_x =" + tsumihiko_x);
+        Debug.Log("tsumihiko_y =" + tsumihiko_y);
+        tsumihiko_x = st_tsumihiko_x;
+        tsumihiko_y = st_tsumihiko_y;
     }
 
     //問題の取得
