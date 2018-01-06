@@ -6,6 +6,8 @@ public class Dungeon_main : MonoBehaviour {
 
     //フェードアウトするかどうか
     public static bool fading = false;
+    //ダンジョンのプログラムにミスがあったらフェードアウトするか
+    public static bool isMissFading = false;
     //ステージ番号を格納する変数
     public static int stage_number;
     //敵の名前、問題番号の取得
@@ -63,6 +65,7 @@ public class Dungeon_main : MonoBehaviour {
         back_main = false;
         isGoal = false;
         fading = false;
+        isMissFading = false;
 
         collider2D.isTrigger = true;
     }
@@ -81,6 +84,7 @@ public class Dungeon_main : MonoBehaviour {
             tsumihiko_y = 1;
         }
         fading = false;
+        isMissFading = false;
     }
 
     // Update is called once per frame
@@ -96,6 +100,19 @@ public class Dungeon_main : MonoBehaviour {
             SceneTransition.ChangeScene("battle");
         }
 
+        /*
+         * ダンジョンのプログラムがミスってたときのif
+         * true: フェードアウト/今いるシーンを再度読み込み
+         * false: フェードイン
+         */
+        if (isMissFading)
+        {
+            SceneTransition.ChangeScene(Stage.scene_name);
+        }
+        else
+        {
+            SceneTransition.FadeIn();
+        }
         //Debug.Log(trans_next);
         //Debug.Log(fading);
         if (trans_next)
@@ -185,6 +202,14 @@ public class Dungeon_main : MonoBehaviour {
         Debug.Log("tsumihiko_y =" + tsumihiko_y);
         tsumihiko_x = st_tsumihiko_x;
         tsumihiko_y = st_tsumihiko_y;
+    }
+
+    /*
+     * ダンジョンのプログラムにミスがあれば、isMissFadingをtrueにする
+     */
+     public static void programMissFading()
+    {
+        isMissFading = true;
     }
 
     //問題の取得

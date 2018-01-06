@@ -231,23 +231,6 @@ public class Program_Execution : MonoBehaviour {
                 
                 yield return new WaitForSeconds(3.0f);
 
-                /*if (isCorrect == true)
-                {
-                    if (program != Battle_main.probrem)
-                    {
-                        tu = 0;
-                        en = 0;
-                        yield return new WaitForSeconds(1.0f);
-                        Main.life--;
-                        //つみひこだめーじ
-                        tu = 5;
-                        en = 1;
-                        isCorrect = false;
-                        yield return new WaitForSeconds(3.0f);
-                        Debug.Log("足りない");
-                    }
-                }*/
-
                 Main.life_display();
 
                 //アニメーション戻す
@@ -270,12 +253,16 @@ public class Program_Execution : MonoBehaviour {
         /*
          * つみひこの現在地とmapを比較する
          * もし0(進める場所)だったら、つみひこをプログラム実行前の位置に戻す
+         * 0:進める場所, 1:障害物・壁, 99:ゴール
          */
         if (scene_initial == 'S')
         {
-            if (Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_x, Dungeon_main.tsumihiko_y] == 0)
+            if ((Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_x, Dungeon_main.tsumihiko_y] == 0
+                || Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_x, Dungeon_main.tsumihiko_y] == 1)
+                && Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_x, Dungeon_main.tsumihiko_y] != 99)
             {
-                Dungeon_main.restorePosition(st_tsumihiko_x, st_tsumihiko_y);
+                //Dungeon_main.restorePosition(st_tsumihiko_x, st_tsumihiko_y);
+                Dungeon_main.programMissFading();
             }
         }
         if (scene_initial == 'b')
