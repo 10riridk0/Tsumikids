@@ -93,9 +93,8 @@ public class Program_Execution : MonoBehaviour {
         //つみひこマス移動
         Dungeon_main.tsumihiko_x = x;
         Dungeon_main.tsumihiko_y = y;
-        Debug.Log("つみひこx座標" + Dungeon_main.tsumihiko_x);
-        Debug.Log("つみひこy座標" + Dungeon_main.tsumihiko_y);
-        Debug.Log("map: " + Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_y, Dungeon_main.tsumihiko_x]);
+        //Debug.Log("つみひこx" + Dungeon_main.tsumihiko_x);
+        //Debug.Log("つみひこy" + Dungeon_main.tsumihiko_y);
 
         for (int i = 0; i < 15; i++)
         {
@@ -105,8 +104,9 @@ public class Program_Execution : MonoBehaviour {
 
             yield return new WaitForSeconds(0.1f);
         }
-
-        if (Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_x, Dungeon_main.tsumihiko_y] == 99)
+        Debug.Log("map: " + Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_y, Dungeon_main.tsumihiko_x]);
+        Debug.Log("x: " + Dungeon_main.tsumihiko_x + "   y: " + Dungeon_main.tsumihiko_y);
+        if (Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_y, Dungeon_main.tsumihiko_x] == 99)
         {
             Debug.Log("ゴール");
             Dungeon_main.Goal();
@@ -250,7 +250,7 @@ public class Program_Execution : MonoBehaviour {
             //yield return move(directions);
             
         }
-        
+
         /*
          * つみひこの現在地とmapを比較する
          * もし0(進める場所)だったら、つみひこをプログラム実行前の位置に戻す
@@ -258,12 +258,15 @@ public class Program_Execution : MonoBehaviour {
          */
         if (scene_initial == 'S')
         {
-            if ((Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_x, Dungeon_main.tsumihiko_y] == 0
-                || Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_x, Dungeon_main.tsumihiko_y] == 1)
-                && Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_x, Dungeon_main.tsumihiko_y] != 99)
+            int tsumihikoPos = Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_y, Dungeon_main.tsumihiko_x];
+            if (tsumihikoPos != 99)
             {
-                //Dungeon_main.restorePosition(st_tsumihiko_x, st_tsumihiko_y);
-                Dungeon_main.programMissFading();
+                if (tsumihikoPos == 0 || tsumihikoPos == 1)
+                {
+                    //Dungeon_main.restorePosition(stutsumihiko_x, st_tsumihiko_y);
+                    Debug.Log("プログラム実行前に戻します");
+                    Dungeon_main.programMissFading();
+                }
             }
         }
         if (scene_initial == 'b')

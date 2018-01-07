@@ -76,6 +76,7 @@ public class Dungeon_main : MonoBehaviour {
      */
     private void Awake()
     {
+        Debug.Log("敵は" + SaveData.GetString("isAlive"));
         tsumihiko_x = SaveData.GetInt("x", 1);
         tsumihiko_y = SaveData.GetInt("y", 1);
         if (tsumihiko_x == 0)
@@ -109,6 +110,7 @@ public class Dungeon_main : MonoBehaviour {
         {
             SceneTransition.ChangeScene("Stage" + stage_number.ToString());
             Debug.Log("Stage" + stage_number + "を再度読み込みます");
+            Debug.Log("Dungeon_main.cs map: " + Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_y, Dungeon_main.tsumihiko_x]);
         }
         else
         {
