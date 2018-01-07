@@ -108,6 +108,7 @@ public class Program_Execution : MonoBehaviour {
 
         if (Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_x, Dungeon_main.tsumihiko_y] == 99)
         {
+            Debug.Log("ゴールしたよ");
             Dungeon_main.Goal();
         }
     }

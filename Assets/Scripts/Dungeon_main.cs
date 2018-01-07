@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;  //あとで消す
 
 public class Dungeon_main : MonoBehaviour {
 
