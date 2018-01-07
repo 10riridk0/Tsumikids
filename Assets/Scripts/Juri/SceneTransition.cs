@@ -61,7 +61,6 @@ public class SceneTransition : MonoBehaviour {
         FadeOut();
         if (isFadeOut)                               //フェードアウトし終えたら次のシーンを読み込む
         {
-            SceneManager.UnloadSceneAsync(activeSceneName);
             SceneManager.LoadScene(sceneName);       //シーン読み込み
             Debug.Log("シーン遷移終了");
             isFadeOut = false;

@@ -93,9 +93,9 @@ public class Program_Execution : MonoBehaviour {
         //つみひこマス移動
         Dungeon_main.tsumihiko_x = x;
         Dungeon_main.tsumihiko_y = y;
-        Debug.Log(Dungeon_main.tsumihiko_x);
-        Debug.Log(Dungeon_main.tsumihiko_y);
-        Debug.Log(Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_y, Dungeon_main.tsumihiko_x]);
+        Debug.Log("つみひこx座標" + Dungeon_main.tsumihiko_x);
+        Debug.Log("つみひこy座標" + Dungeon_main.tsumihiko_y);
+        Debug.Log("map: " + Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_y, Dungeon_main.tsumihiko_x]);
 
         for (int i = 0; i < 15; i++)
         {
@@ -108,7 +108,7 @@ public class Program_Execution : MonoBehaviour {
 
         if (Stage.map[Dungeon_main.stage_number - 1, Dungeon_main.tsumihiko_x, Dungeon_main.tsumihiko_y] == 99)
         {
-            Debug.Log("ゴールしたよ");
+            Debug.Log("ゴール");
             Dungeon_main.Goal();
         }
     }
