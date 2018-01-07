@@ -54,24 +54,20 @@ public class SceneTransition : MonoBehaviour {
     //仮引数: 遷移したいシーンの名前
     public static void ChangeScene(string sceneName)
     {
-        Debug.Log(sceneName);
-        Debug.Log(SceneManager.GetActiveScene().name);
+        string activeSceneName = SceneManager.GetActiveScene().name;
+        Debug.Log("遷移するシーン" + sceneName);
+        Debug.Log("今のシーン" + activeSceneName);
         Debug.Log("フェードアウト開始");
         FadeOut();
         if (isFadeOut)                               //フェードアウトし終えたら次のシーンを読み込む
         {
+            SceneManager.UnloadSceneAsync(activeSceneName);
             SceneManager.LoadScene(sceneName);       //シーン読み込み
             Debug.Log("シーン遷移終了");
             isFadeOut = false;
             isFadeIn = false;                        //isFadeOutとisFadeInをfalseに戻しておく
             Debug.Log(isFadeOut);
         }
-    }
-    //フェードイン関数
-    public static void SceneFadeIn()
-    {
-        //Debug.Log("フェードイン開始");
-        FadeIn();
     }
 
     // Use this for initialization

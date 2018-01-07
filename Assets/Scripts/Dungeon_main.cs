@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;  //あとで消す
 
 public class Dungeon_main : MonoBehaviour {
 
@@ -107,7 +108,8 @@ public class Dungeon_main : MonoBehaviour {
          */
         if (isMissFading)
         {
-            SceneTransition.ChangeScene(Stage.scene_name);
+            SceneTransition.ChangeScene("Stage" + stage_number.ToString());
+            Debug.Log("Stage" + stage_number + "を再度読み込みます");
         }
         else
         {
